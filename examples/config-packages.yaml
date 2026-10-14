@@ -1,0 +1,4 @@
+# Copy to config/packages/franken_php_grpc.yaml in your Symfony application.
+franken_php_grpc:
+  # Default: true. Uses Symfony's services_resetter and kernel.reset tags.
+  reset_services: true

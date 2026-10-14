@@ -1,0 +1,24 @@
+# Your Symfony application's config/services.yaml usually already contains:
+services:
+  App\:
+    resource: '../src/'
+    autowire: true
+    autoconfigure: true
+
+# #[GrpcHandler] classes and methods are detected for autoconfigured services.
+# Copy examples/Handler, examples/Error and examples/Exception to src/Grpc/.
+# GrpcExceptionMapperInterface implementations are also automatically tagged.
+# Without autoconfigure, register the mapper explicitly:
+#   App\Grpc\Error\InvalidMessageMapper:
+#     tags:
+#       - { name: frankenphp_grpc.exception_mapper, priority: 100 }
+#
+# Public bundle services (class aliases resolve to the same instances):
+#   frankenphp_grpc.bridge           <=> FrankenPhpGrpcBundle\Bridge\GrpcBridge
+#   frankenphp_grpc.dispatcher       <=> FrankenPhpGrpcBundle\Dispatcher\GrpcDispatcher
+#   frankenphp_grpc.exception_mapper <=> FrankenPhpGrpcBundle\Error\GrpcExceptionMapper
+# Use the bridge at the Go/PHP boundary; the dispatcher alone does not map errors.
+# You can also register a handler manually using this tag:
+#   App\Grpc\Handler\LegacyHandler:
+#     tags:
+#       - { name: frankenphp_grpc.handler, path: '/example.v1.EchoService/Legacy', method: '__invoke' }

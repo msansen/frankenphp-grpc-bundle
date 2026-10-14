@@ -1,0 +1,7 @@
+{
+    frankenphp
+    grpc {
+        address :50051
+        worker /app/grpc-worker.php
+    }
+}
